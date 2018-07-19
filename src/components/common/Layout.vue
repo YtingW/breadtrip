@@ -72,6 +72,7 @@ import MyHeader from './Header.vue';
         }
         >div:last-child{
             height: .55rem;
+            position: static;
             i{
                 font-family:'iconfont';
                 font-size:22px;

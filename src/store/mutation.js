@@ -6,6 +6,7 @@ const mutations={
         state.position=payload;
     },
     setData(state,payload){
+        state.triplist.swiper=payload[1].data;
         state.triplist.recommend=payload[0].data;
         state.triplist.discovery=payload[1].data;
         state.listtitle={

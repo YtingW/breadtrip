@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import $ from 'axios';
 Vue.use(Vuex);
+import $ from 'axios'
 import mutations from './mutation';
 import getters from './getters';
 import actions from './actions';
@@ -10,7 +10,8 @@ const state={
     listtile:{},
     position:0,
     triplist:{
-        recommend:[],
+        swiper:{},
+        recommend:{},
         discovery:[]
     }
 }

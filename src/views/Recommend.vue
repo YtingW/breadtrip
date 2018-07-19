@@ -2,7 +2,8 @@
     <recommend />  
 </template>
 <script>
-import Recommend from '@/components/Recommend.vue';
+import $ from 'axios'
+import Recommend from '@/components/recommend/Recommend.vue';
 export default{
     components:{
         Recommend

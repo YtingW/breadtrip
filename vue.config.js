@@ -1,18 +1,19 @@
 module.exports={
     devServer:{
         proxy:{
-            '/v2':{
+            '/api':{
                 target:'http://api.breadtrip.com',
-                changeOrigin:true
+                changeOrigin:true,
+                pathRewrite:{"^/api":""}
             },
-            '/destination':{
-                target:'http://api.breadtrip.com',
-                changeOrigin:true
-            },
-            '/trips':{
-                target:'http://api.breadtrip.com',
-                changeOrigin:true
-            }
+            // '/destination':{
+            //     target:'http://api.breadtrip.com',
+            //     changeOrigin:true
+            // },
+            // '/trips':{
+            //     target:'http://api.breadtrip.com',
+            //     changeOrigin:true
+            // }
         }
     }
 }
