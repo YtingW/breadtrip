@@ -10,8 +10,8 @@ const state={
     listtile:{},
     position:0,
     triplist:{
-        swiper:{},
-        recommend:{},
+        swiper:[],
+        recommend:[],
         discovery:[]
     }
 }

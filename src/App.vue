@@ -1,24 +1,31 @@
 <template>
-  <router-view />
+  <div id="app">
+  <keep-alive>
+    <router-view v-if="$route.meta.keepAlive"></router-view>
+  </keep-alive>
+   <!-- <router-view></router-view>  -->
+   </div>
 </template>
 <script>
-import {mapActions} from 'vuex'
+import {mapActions} from 'vuex';
 export default {
   methods: {
     ...mapActions(['getData'])
   },
   created() {
-    this.getData();
-    console.log('created');
-  },
-  beforeMount() {
-    console.log('beforeMount');
+      this.getData();
   },
   mounted() {
-    console.log('mounted');
+    console.log('app-mounted');
   },
-  updated() {
-    console.log('updated');
+  beforeUpdate() {
+    console.log('app-beforeupdate');
+  },
+ updated() {
+    console.log('app-updated');
+  },
+  destroyed() {
+    console.log('app-destroyed');
   },
 }
 </script>

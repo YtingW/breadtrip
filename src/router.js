@@ -17,35 +17,57 @@ export default new Router({
     {
       path:'/splash',
       name:'splash',
-      component:Splash
+      component:Splash,
+      meta: {
+        keepAlive: true 
+      }
+
     },
     {
       path: '/index',
       name:'index',
       redirect: '/index/recommend',
       component: Index,
+      meta: {
+        keepAlive: true 
+      },
       children:[
         {
           path:'recommend',
           name:'recommend',
-          component:Recommend
+          component:Recommend,
+          meta: {
+            keepAlive: true 
+          }
         },
+       
         {
           path:'discovery',
           name:'discovery',
-          component:Discovery
-        }
+          component:Discovery,
+          meta: {
+            keepAlive: true 
+          }
+        },
+        
       ]
     },
     {
       path:'detail',
       name:'detail',
-      component:Detail
+      component:Detail,
+      meta: {
+        keepAlive: true 
+      }
     },
     {
-      path:'destination',
-      name:'destination',
-      component:Destination
+          path:'destination',
+          name:'destination',
+          component:Destination,
+          meta: {
+            keepAlive: true 
+          }
     }
+    
   ]
 })

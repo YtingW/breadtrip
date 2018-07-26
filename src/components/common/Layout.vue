@@ -3,7 +3,9 @@
         <my-header :isShowBack="false"></my-header>
         
         <div class="container">
-            <router-view />
+            <keep-alive>
+                <router-view  v-if="$route.meta.keepAlive"></router-view>
+            </keep-alive>
         </div>
     
         <div class="mint-tabbar">
@@ -11,8 +13,10 @@
             v-for="v of tabbar" 
             :key="v.id"
             :to="v.path"
+            @click.native="handleTabClick(v.path)"
             active-class="selected" 
-            class="mint-tab-item">
+            class="mint-tab-item" 
+            >
                 <div class="mint-tab-item-icon">
                     <i class='yo-icon' v-html="v.icon"></i>
                 </div>
@@ -29,7 +33,6 @@ import MyHeader from './Header.vue';
        name:'layout',
        data(){
            return {
-            selected:'red',
             tabbar:[
                 {
                     id:'t1',
@@ -44,12 +47,21 @@ import MyHeader from './Header.vue';
                     path:'/index/discovery'
                 }
             ]
+
            }
            
        },
        components:{
            MyHeader
-       }
+       },
+        methods: {
+            handleTabClick(path) {
+                this.$router.push({
+                    path
+                })
+            }
+        },
+
    }
 </script>
 <style lang="scss" scoped>

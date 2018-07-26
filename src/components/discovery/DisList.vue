@@ -1,17 +1,20 @@
 <template>
-   <ul>
-       <li v-for="v of triplist" :key="v.index">
-           <h2>{{v.title}}</h2>
-           <ul class="ul-list">
-               <li v-for="item of v.data" :key="item.id" @click="handleClickItem(item.id)">
-                   <img :src="item.cover" />
-                   <p>{{item.name}}</p>
-                </li>
-            </ul>
-       </li>
-    </ul> 
+<div class="wrapper">
+    <ul>
+        <li v-for="v of triplist" :key="v.index">
+            <h2>{{v.title}}</h2>
+            <ul class="ul-list">
+                <li v-for="item of v.data" :key="item.id" @click="handleClickItem(item.id)">
+                    <img :src="item.cover" />
+                    <p>{{item.name}}</p>
+                    </li>
+                </ul>
+        </li>
+        </ul> 
+</div>
 </template>
 <script>
+    import BScroll from 'better-scroll';
     export default {
         name:"dislist",
         computed:{
@@ -25,6 +28,14 @@
                     
                 }
             }
+        },
+        mounted() {
+            const options = {
+                scrollY: true,
+                click:true,
+            }
+          this.scroll = new BScroll('.wrapper',options);
+           
         },
         methods:{
             handleClickItem(id){
@@ -40,6 +51,10 @@
 </script>
 <style lang="scss" scoped>
     @import '@/styles/usage/core/reset.scss';
+    .wrapper{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
     li{
         margin-top: .20rem;
         h2{
@@ -82,5 +97,5 @@
             }
         }
     }
-    
+    }
 </style>
